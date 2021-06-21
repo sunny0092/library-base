@@ -45,6 +45,7 @@ dependencies {
     implementation(Dependencies.RESIZE_IMAGE)
 
     //CORE
+    implementation(Dependencies.OKHTTP)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.LIFECYCLE_KTX)
     implementation(Dependencies.LIFECYCLE_VIEW_MODEL)
@@ -58,12 +59,17 @@ dependencies {
     implementation(Dependencies.MOSHI_CONVERTER)
     implementation(Dependencies.MOSHI_KTX)
 
+    //UTILS
+    implementation(Dependencies.LOCALIZATION)
+    implementation(Dependencies.COMMONS)
+
     //GOOGLE
     implementation(platform(Dependencies.FIREBASE_BOM))
     implementation(Dependencies.FIREBASE_MESSAGE)
 
     implementation(Dependencies.GOOGLE_SERVICE_MAP)
     implementation(Dependencies.GOOGLE_SERVICE_LOCATION)
+    implementation(Dependencies.GOOGLE_API_PHONE)
     implementation(Dependencies.WORKMANAGER)
 
     //LOGGER

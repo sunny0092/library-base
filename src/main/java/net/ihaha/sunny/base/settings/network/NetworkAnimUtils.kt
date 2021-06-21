@@ -8,7 +8,7 @@ import android.content.Context
 import android.view.View
 import android.view.animation.*
 import androidx.core.view.isVisible
-import com.delichill.shipper.R
+import net.ihaha.sunny.base.R
 
 object NetworkAnimUtils {
     enum class Duration {

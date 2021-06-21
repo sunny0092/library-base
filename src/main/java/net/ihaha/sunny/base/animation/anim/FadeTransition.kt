@@ -10,7 +10,7 @@ import android.transition.TransitionValues
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import com.delichill.shipper.utils.R
+import net.ihaha.sunny.base.R
 
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)

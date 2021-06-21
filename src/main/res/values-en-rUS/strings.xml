@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">library-base</string>
+    <string name="text_ok">"Ok "</string>
+    <string name="text_no">Cancel</string>
+    <string name="text_notice">Notice</string>
+</resources>

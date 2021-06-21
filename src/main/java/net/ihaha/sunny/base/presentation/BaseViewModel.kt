@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.delichill.shipper.core.data.util.network.DataChannelManager
-import com.delichill.shipper.core.data.util.network.DataState
-import com.delichill.shipper.core.data.util.network.EventState
-import com.delichill.shipper.core.data.util.network.StateMessage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
+import net.ihaha.sunny.base.core.repository.network.DataChannelManager
+import net.ihaha.sunny.base.core.repository.network.DataState
+import net.ihaha.sunny.base.core.repository.network.EventState
+import net.ihaha.sunny.base.core.repository.network.StateMessage
 import timber.log.Timber
 
 @FlowPreview

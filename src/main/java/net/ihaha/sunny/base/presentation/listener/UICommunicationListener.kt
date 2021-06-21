@@ -1,8 +1,7 @@
 package net.ihaha.sunny.base.presentation.listener
 
-import com.delichill.shipper.core.data.util.network.Response
-import com.delichill.shipper.core.data.util.network.StateMessageCallback
-import com.delichill.shipper.listener.OnListenerNavigation
+import net.ihaha.sunny.base.core.repository.network.Response
+import net.ihaha.sunny.base.core.repository.network.StateMessageCallback
 
 
 interface UICommunicationListener {

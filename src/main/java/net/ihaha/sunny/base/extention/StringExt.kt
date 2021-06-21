@@ -98,7 +98,7 @@ fun Long?.formatPrice(): String? {
     val price = "-----"
     try {
         if (this != null && this != 0L) {
-            val format = DecimalFormat("#,###");
+            val format = DecimalFormat("#,###đ")
             format.currency = Currency.getInstance(Locale.US);
             return String.format("%s", format.format(this));
         }
@@ -108,6 +108,7 @@ fun Long?.formatPrice(): String? {
         Timber.e(e)
     }
 }
+
 
 var current = ""
 val ddmmyyyy = "ddmmyyyy"

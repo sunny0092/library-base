@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.delichill.shipper.R
+import net.ihaha.sunny.base.R
 
 
 /**

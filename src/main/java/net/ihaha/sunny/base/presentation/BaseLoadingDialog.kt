@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.Window
 import android.view.WindowManager
-import com.delichill.shipper.R
+import net.ihaha.sunny.base.R
 
 class BaseLoadingDialog(context: Context, theme: Int = R.style.TransparentDialog) : Dialog(context, theme) {
 
