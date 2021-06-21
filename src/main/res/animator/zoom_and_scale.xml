@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <set
+            android:interpolator="@android:anim/linear_interpolator"
+            android:ordering="together">
+            <objectAnimator
+                android:duration="150"
+                android:propertyName="translationZ"
+                android:valueFrom="@dimen/_1sdp"
+                android:valueTo="@dimen/_3sdp"
+                android:valueType="floatType" />
+
+            <objectAnimator
+                android:duration="150"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:propertyName="scaleX"
+                android:valueTo="1.2"
+                android:valueType="floatType" />
+
+            <objectAnimator
+                android:duration="150"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:propertyName="scaleY"
+                android:valueTo="1.2"
+                android:valueType="floatType" />
+        </set>
+    </item>
+
+    <item>
+        <set
+            android:interpolator="@android:anim/linear_interpolator"
+            android:ordering="together">
+            <objectAnimator
+                android:duration="150"
+                android:propertyName="translationZ"
+                android:valueFrom="@dimen/_3sdp"
+                android:valueTo="@dimen/_1sdp"
+                android:valueType="floatType" />
+
+            <objectAnimator
+                android:duration="150"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:propertyName="scaleX"
+                android:valueTo="1"
+                android:valueType="floatType" />
+
+            <objectAnimator
+                android:duration="150"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:propertyName="scaleY"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </set>
+    </item>
+</selector>
