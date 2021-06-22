@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.onEach
 
 @FlowPreview
 @ExperimentalCoroutinesApi
+@ObsoleteCoroutinesApi
 abstract class DataChannelManager<ViewState> {
     private val TAG: String = "AppDebug"
     private val _activeEventStates: HashSet<String> = HashSet()
