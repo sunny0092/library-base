@@ -12,11 +12,11 @@ import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import net.ihaha.sunny.location.PermissionCheck.Companion.LOCATION_PERMISSIONS
 import com.google.android.gms.location.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import net.ihaha.sunny.location.PermissionCheck.Companion.LOCATION_PERMISSIONS
 
 abstract class LocationTracker(var activity: Activity) {
 

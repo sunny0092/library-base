@@ -210,6 +210,12 @@ inline fun FragmentActivity.getStoragePermission(
         onDenied,
         onLocationGranted
     ).launch(PermissionCheck.STORAGE_PERMISSIONS)
+
+inline fun Fragment.getCallPhonePermission(
+    crossinline onDenied: () -> Unit = {},
+    crossinline onGranted: () -> Unit = {}
+) =
+    askForSinglePermission(onDenied, onGranted).launch(Manifest.permission.CALL_PHONE)
 //endregion
 
 class LocationSettingsContract : ActivityResultContract<Nothing, Nothing>() {

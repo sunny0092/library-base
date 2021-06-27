@@ -366,6 +366,11 @@ fun View.showAnimation() {
     this.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in_custom))
 }
 
+fun View.showAnimationLogo() {
+    visibility = View.VISIBLE
+    this.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in_logo))
+}
+
 fun View.hide(gone: Boolean = true) {
     visibility = if (gone) View.GONE else View.INVISIBLE
 }

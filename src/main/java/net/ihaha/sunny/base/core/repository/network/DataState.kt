@@ -5,32 +5,19 @@ data class DataState<T>(
     var data: T? = null,
     var eventState: EventState? = null
 ) {
-
     companion object {
         fun <T> error(
-            response: Response,
+            responseType: ResponseType,
             eventState: EventState?
         ): DataState<T> {
             return DataState(
-                stateMessage = StateMessage(
-                    response
-                ),
-                data = null,
-                eventState = eventState
+                stateMessage = StateMessage(responseType), data = null, eventState = eventState
             )
         }
 
-        fun <T> data(
-            response: Response?,
-            data: T? = null,
-            eventState: EventState?
-        ): DataState<T> {
+        fun <T> data(responseType: ResponseType?, data: T? = null, eventState: EventState?): DataState<T> {
             return DataState(
-                stateMessage = response?.let {
-                    StateMessage(
-                        it
-                    )
-                },
+                stateMessage = responseType?.let { StateMessage(it) },
                 data = data,
                 eventState = eventState
             )

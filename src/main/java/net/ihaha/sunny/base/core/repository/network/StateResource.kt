@@ -1,8 +1,8 @@
 package net.ihaha.sunny.base.core.repository.network
 
 
-data class StateMessage(val response: Response)
-data class Response(
+data class StateMessage(val responseType: ResponseType)
+data class ResponseType(
     val message: String? = "",
     val uiComponentType: UIComponentType,
     val messageType: MessageType

@@ -15,6 +15,7 @@ android {
 dependencies {
     //LAYOUT
     kapt(Dependencies.DATABINDING)
+    implementation(Dependencies.MULTIDEX)
     implementation(Dependencies.CONSTRAINT)
     implementation(Dependencies.ACTIVITY)
     implementation(Dependencies.FRAGMENT)

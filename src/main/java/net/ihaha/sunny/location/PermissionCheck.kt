@@ -1,6 +1,7 @@
 package net.ihaha.sunny.location
 
 import android.Manifest.permission
+import android.Manifest.permission.CALL_PHONE
 import android.Manifest.permission.CAMERA
 import android.app.Activity
 import android.content.pm.PackageManager
@@ -29,6 +30,7 @@ class PermissionCheck(private val activity: Activity) {
             permission.ACCESS_FINE_LOCATION,
             permission.ACCESS_COARSE_LOCATION
         )
+        var CALL_PHONE_PERMISSIONS = CALL_PHONE
     }
 }
 

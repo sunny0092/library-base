@@ -7,8 +7,6 @@ import com.squareup.moshi.JsonClass
 data class BaseData<T>(
     @Json(name = "data")
     val `data`: List<T>?,
-    @Json(name = "pagination")
-    val pagination: PaginationModel? = null,
     @Json(name = "message")
     val msg: String? = null,
     @Json(name = "code")
@@ -16,5 +14,7 @@ data class BaseData<T>(
     @Json(name = "success")
     val success: Boolean = false,
     @Json(name = "type")
-    val type: String? = null
+    val type: String? = null,
+    @Json(name = "pagination")
+    val pagination: PaginationModel? = null
 )

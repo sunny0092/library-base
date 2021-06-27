@@ -47,7 +47,7 @@ class MessageStack : ArrayList<StateMessage>() {
             e.printStackTrace()
         }
         return StateMessage(
-            Response(
+            ResponseType(
                 message = "does nothing",
                 uiComponentType = UIComponentType.None,
                 messageType = MessageType.None

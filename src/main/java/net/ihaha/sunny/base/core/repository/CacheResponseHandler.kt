@@ -10,7 +10,7 @@ abstract class CacheResponseHandler<ViewState, Data>(
         return when (response) {
             is CacheResult.GenericError -> {
                 DataState.error(
-                    response = Response(
+                    responseType = ResponseType(
                         message = "${eventState?.errorInfo()}\n\nError: ${response.errorMessage}",
                         uiComponentType = UIComponentType.Toast,
                         messageType = MessageType.Error
@@ -21,7 +21,7 @@ abstract class CacheResponseHandler<ViewState, Data>(
             is CacheResult.Success -> {
                 if (response.value == null) {
                     DataState.error(
-                        response = Response(
+                        responseType = ResponseType(
                             message = "${eventState?.errorInfo()}\n\nError: Data is NULL.",
                             uiComponentType = UIComponentType.None,
                             messageType = MessageType.Error

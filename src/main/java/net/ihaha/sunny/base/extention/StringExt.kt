@@ -97,7 +97,7 @@ fun String.toSpanned(): Spanned = if (Build.VERSION.SDK_INT >= Build.VERSION_COD
 fun Long?.formatPrice(): String? {
     val price = "-----"
     try {
-        if (this != null && this != 0L) {
+        if (this != null && this != -1L) {
             val format = DecimalFormat("#,###đ")
             format.currency = Currency.getInstance(Locale.US);
             return String.format("%s", format.format(this));

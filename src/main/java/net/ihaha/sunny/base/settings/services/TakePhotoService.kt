@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -17,15 +16,12 @@ import id.zelory.compressor.constraint.resolution
 import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import net.ihaha.sunny.base.extention.getCameraPermission
-import net.ihaha.sunny.base.extention.getStoragePermission
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import org.apache.commons.io.FileUtils
 import java.io.File
-import java.io.IOException
 import java.util.*
 
 
@@ -43,48 +39,29 @@ class TakePhotoService constructor(val fragment: Fragment, val activity: Activit
         const val OPERATION_CHOOSE_PHOTO = 222
     }
 
-
     fun openGallery() {
-        fragment.getStoragePermission(
-            onLocationGranted = {
-                val intent = Intent("android.intent.action.GET_CONTENT")
-                intent.type = "image/*"
-                fragment.startActivityForResult(intent, OPERATION_CHOOSE_PHOTO)
-            },
-            onDenied = {
-                Toast.makeText(activity, "Please enable storage permission", Toast.LENGTH_LONG)
-                    .show()
-            })
+        val intent = Intent("android.intent.action.GET_CONTENT")
+        intent.type = "image/*"
+        fragment.startActivityForResult(intent, OPERATION_CHOOSE_PHOTO)
     }
 
-    fun capturePhoto(provider: String) {
-        try {
-            fragment.getCameraPermission(
-                onGranted = {
-                    val capturedImage = File(
-                        activity.applicationContext.externalCacheDir,
-                        "${UUID.randomUUID()}.jpg"
-                    )
-                    capturedImage.createNewFile()
-                    val imageURI = if (Build.VERSION.SDK_INT >= 24) {
-                        activity.applicationContext.let {
-                            FileProvider.getUriForFile(it, provider, capturedImage)
-                        }
-                    } else {
-                        Uri.fromFile(capturedImage)
-                    }
-                    val intent = Intent("android.media.action.IMAGE_CAPTURE")
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageURI)
-                    fragment.startActivityForResult(intent, OPERATION_CAPTURE_PHOTO)
-                },
-                onDenied = {
-                    Toast.makeText(activity, "Please enable storage permission", Toast.LENGTH_LONG).show()
-                })
-        } catch (e: Exception) {
-            Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
-        } catch (e: IOException) {
-            Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
+    fun capturePhoto(provider: String): Uri {
+        val capturedImage = File(
+            activity.applicationContext.externalCacheDir,
+            "${UUID.randomUUID()}.jpg"
+        )
+        capturedImage.createNewFile()
+        val imageURI = if (Build.VERSION.SDK_INT >= 24) {
+            activity.applicationContext.let {
+                FileProvider.getUriForFile(it, provider, capturedImage)
+            }
+        } else {
+            Uri.fromFile(capturedImage)
         }
+        val intent = Intent("android.media.action.IMAGE_CAPTURE")
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageURI)
+        fragment.startActivityForResult(intent, OPERATION_CAPTURE_PHOTO)
+        return imageURI
     }
 
     suspend fun resultForImageCapture(fileName: String?, imageURI: Uri?): MultipartBody.Part? {

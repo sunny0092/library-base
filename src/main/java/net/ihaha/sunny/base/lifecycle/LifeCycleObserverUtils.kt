@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import net.ihaha.sunny.base.presentation.currentClassName
 import timber.log.Timber
 
 /**
@@ -34,7 +33,6 @@ class LifeCycleObserverUtils(private val lifecycle: Lifecycle) : LifecycleObserv
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
         logInfo("onResume() $className")
-        currentClassName = className
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
