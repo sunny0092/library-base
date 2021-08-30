@@ -10,7 +10,6 @@ import net.ihaha.sunny.base.core.repository.network.ApiResult
 import net.ihaha.sunny.base.extention.string
 import net.ihaha.sunny.base.presentation.appContext
 import net.ihaha.sunny.base.utils.ServiceConstants.Companion.NETWORK_TIMEOUT
-import net.ihaha.sunny.base.utils.ServiceConstants.Companion.UNKNOWN_ERROR
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -39,7 +38,7 @@ suspend fun <T> safeApiCall(
                     if (code == 401) ApiResult.Login
                     else ApiResult.GenericError(code,  throwable.message)
                 }
-                else -> ApiResult.GenericError(null, UNKNOWN_ERROR)
+                else -> ApiResult.GenericError(null, throwable.message)
             }
         }
     }

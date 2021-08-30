@@ -37,6 +37,11 @@ fun <ViewState> EventState.serverErrorMessage(): DataState<ViewState>? {
     return message?.error(this, UIComponentType.Dialog, MessageType.Warning)
 }
 
+fun <ViewState> EventState.serverErrorStaveMessage(): DataState<ViewState>? {
+    val message = appContext.resources?.getString(R.string.error_invalid_state_event)
+    return message?.error(this, UIComponentType.Dialog, MessageType.Warning)
+}
+
 fun <ViewState> EventState.verify(message: String?): DataState<ViewState>? {
     return message?.error(this, UIComponentType.Dialog, MessageType.Verify)
 }

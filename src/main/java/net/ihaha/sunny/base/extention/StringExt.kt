@@ -5,6 +5,7 @@ import android.text.Html
 import android.text.Spanned
 import android.widget.EditText
 import timber.log.Timber
+import java.math.RoundingMode
 import java.nio.charset.Charset
 import java.text.DecimalFormat
 import java.time.LocalDateTime
@@ -94,12 +95,27 @@ fun String.toSpanned(): Spanned = if (Build.VERSION.SDK_INT >= Build.VERSION_COD
     Html.FROM_HTML_MODE_LEGACY
 ) else @Suppress("DEPRECATION") Html.fromHtml(this)
 
-fun Long?.formatPrice(): String? {
+//fun Long?.formatPrice(): String? {
+//    val price = "-----"
+//    try {
+//        if (this != null && this != -1L) {
+//            val format = DecimalFormat("#,###đ")
+//            format.currency = Currency.getInstance(Locale.US);
+//            return String.format("%s", format.format(this));
+//        }
+//        return price
+//    } catch (e: Exception) {
+//        return price
+//        Timber.e(e)
+//    }
+//}
+
+fun Double?.formatPrice(): String? {
     val price = "-----"
     try {
-        if (this != null && this != -1L) {
+        if (this != null) {
             val format = DecimalFormat("#,###đ")
-            format.currency = Currency.getInstance(Locale.US);
+            format.roundingMode = RoundingMode.FLOOR
             return String.format("%s", format.format(this));
         }
         return price

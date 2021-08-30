@@ -20,7 +20,6 @@ object TimeConstants {
     const val PARAMS_INPUT_8 = "yyyy-MM-dd'T'HH:mm:ss"
     const val PARAMS_INPUT_9 = "yyyy-MM-dd'T'HH:mm:ss.SSS"
     const val PARAMS_INPUT_10 = "MM/yyyy"
-    const val PARAMS_INPUT_11 = "dd/mm/yyyy"
     const val PARAMS_INPUT_12 = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
 
 }

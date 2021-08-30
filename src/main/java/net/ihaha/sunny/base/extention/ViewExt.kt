@@ -205,15 +205,15 @@ fun setTextHtml(textView: AppCompatTextView, content: String?) {
 //    switch.setOnCheckedChangeListener(onCheckedChangeListener)
 //}
 
-@SuppressLint("SetTextI18n")
-@BindingAdapter("app:price")
-fun AppCompatTextView.priceFormat(number: Long?) {
-    if (number != null && number != 0L) {
-        this.text = number.formatPrice()
-    } else {
-        this.text = "-----"
-    }
-}
+//@SuppressLint("SetTextI18n")
+//@BindingAdapter("app:price")
+//fun AppCompatTextView.priceFormat(number: Long?) {
+//    if (number != null && number != 0L) {
+//        this.text = number.formatPrice()
+//    } else {
+//        this.text = "-----"
+//    }
+//}
 
 @BindingAdapter("app:date")
 fun AppCompatTextView.dateFormat(number: String) {

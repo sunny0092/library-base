@@ -13,6 +13,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-runtime:2.3.0")
     //LAYOUT
     kapt(Dependencies.DATABINDING)
     implementation(Dependencies.MULTIDEX)

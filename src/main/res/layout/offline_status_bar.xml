@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:background="#CC787C82">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_gravity="center"
-        android:padding="@dimen/_8sdp"
-        android:text="@string/offline_error"
-        android:drawablePadding="@dimen/_6sdp"
-        app:drawableStartCompat="@drawable/ic_offline" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="0dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:padding="@dimen/_8sdp"-->
+<!--        android:text="@string/offline_error"-->
+<!--        android:drawablePadding="@dimen/_6sdp"-->
+<!--        app:drawableStartCompat="@drawable/ic_offline" />-->
 </FrameLayout>

@@ -21,11 +21,19 @@ fun <ViewState> Response<BaseModel>?.responseStatus(
     return when (this?.isSuccessful) {
         true -> {
             when {
-                this.code().checkStatusSuccess() -> onCallBack.invoke(this.body())
-                this.code().checkStatusVerify(this.body()?.msg) -> eventState.verify(this.body()?.msg)
+                this.code().checkStatusSuccess() ->{
+                    onCallBack.invoke(this.body())
+                }
+                this.code().checkStatusVerify(this.body()?.msg) ->{
+                    eventState.verify(this.body()?.msg)
+                }
                 else -> {
-                    if (this.body() != null) eventState.serverError(this, this.body()?.msg)
-                    else eventState.serverErrorMessage()
+                    if (this.body() != null){
+                        eventState.serverError(this, this.body()?.msg)
+                    }
+                    else{
+                        eventState.serverErrorMessage()
+                    }
                 }
             }
         }
@@ -49,9 +57,15 @@ fun <ViewState, T> Response<BaseData<T>>?.responseDataNoWarning(
             if (this.body() != null) {
                 val body = this.body()
                 when {
-                    body?.data?.isNotEmpty() == true -> body.data.toMutableList().let { onCallBack.invoke(it) }
-                    this.code().checkStatusVerify(this.body()?.msg) -> eventState.verify(this.body()?.msg)
-                    else -> eventState.serverNone()
+                    body?.data?.isNotEmpty() == true ->{
+                        body.data.toMutableList().let { onCallBack.invoke(it) }
+                    }
+                    this.code().checkStatusVerify(this.body()?.msg) ->{
+                        eventState.verify(this.body()?.msg)
+                    }
+                    else ->{
+                        eventState.serverNone()
+                    }
                 }
             } else eventState.serverErrorMessage()
         }
@@ -73,10 +87,15 @@ fun <ViewState, T> Response<BaseData<T>>?.responseDataWarning(
             if (this.body() != null) {
                 val body = this.body()
                 when {
-                    body?.data?.isNotEmpty() == true -> body.data.toMutableList()
-                        .let { onCallBack.invoke(it) }
-                    this.code().checkStatusVerify(this.body()?.msg) -> eventState.verify(this.body()?.msg)
-                    else -> eventState.serverErrorData(this)
+                    body?.data?.isNotEmpty() == true ->{
+                        body.data.toMutableList().let { onCallBack.invoke(it) }
+                    }
+                    this.code().checkStatusVerify(this.body()?.msg) ->{
+                        eventState.verify(this.body()?.msg)
+                    }
+                    else ->{
+                        eventState.serverErrorData(this)
+                    }
                 }
             } else eventState.serverErrorMessage()
         }
@@ -100,9 +119,15 @@ fun <ViewState, T> Response<BaseObject<T>>?.responseObjectNoWarning(
             if (this.body() != null) {
                 val body = this.body()
                 when {
-                    body?.data != null -> body.data.let { onCallBack.invoke(it) }
-                    this.code().checkStatusVerify(this.body()?.msg) -> eventState.verify(this.body()?.msg)
-                    else -> eventState.serverNone()
+                    body?.data != null ->{
+                        body.data.let { onCallBack.invoke(it) }
+                    }
+                    this.code().checkStatusVerify(this.body()?.msg) ->{
+                        eventState.verify(this.body()?.msg)
+                    }
+                    else ->{
+                        eventState.serverNone()
+                    }
                 }
             } else eventState.serverErrorMessage()
         }
@@ -122,9 +147,15 @@ fun <ViewState, T> Response<BaseObject<T>>?.responseObject(
             if (this.body() != null) {
                 val body = this.body()
                 when {
-                    body?.data != null -> body.data.let { onCallBack.invoke(it) }
-                    this.code().checkStatusVerify(this.body()?.msg) -> eventState.verify(this.body()?.msg)
-                    else -> eventState.serverErrorObject(this)
+                    body?.data != null ->{
+                        body.data.let { onCallBack.invoke(it) }
+                    }
+                    this.code().checkStatusVerify(this.body()?.msg) ->{
+                        eventState.verify(this.body()?.msg)
+                    }
+                    else ->{
+                        eventState.serverErrorObject(this)
+                    }
                 }
             } else eventState.serverErrorMessage()
         }
